@@ -1,0 +1,128 @@
+<resources>
+    <string name="app_name">TripDataCollection</string>
+    <string name="user_name_hint">User Name</string>
+    <string name="login_btn_name">Login</string>
+    <string name="sign_up_btn_name">SignUp</string>
+    <string name="confirm_password_hint">Confirm Password</string>
+    <string name="create_account_text">No account yet? Create one</string>
+    <string name="forgot_password_text">Forgot Password? Reset</string>
+    <string name="reset_btn_name">Reset Password</string>
+    <string name="back_btn_name">Back</string>
+    <string name="upload_icon_title">Upload Icon</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_add_location">Add Location</string>
+    <string name="title_saved_locations">Saved</string>
+
+    <!-- Strings of main Screen -->
+    <string name="header_str1">How are you going to contribute?</string>
+    <string name="header_str2">Please tap the category whose data you want
+        to upload.</string>
+    <string name="title_activity_test_bottom">testBottomAct</string>
+
+    <!-- Add location Screen strings -->
+    <string name="get_location_btn_str">get my gps co-ordinates</string>
+    <string name="loc_long">Longitude</string>
+    <string name="loc_lat">Latitude</string>
+    <string name="loc_name">Name</string>
+    <string name="loc_desc">Description</string>
+    <string name="loc_img_title">Image title in camera</string>
+    <string name="loc_additional_imgs">Additional Images (Optional)</string>
+    <string name="loc_class">Classification</string>
+    <string name="loc_acess">Accessible via</string>
+    <string name="btn_save">Save</string>
+
+
+    <!-- Profile Screen Text -->
+    <string name="profile_desc">Please log in or sign up to upload your data to Karomber servers.</string>
+    <string name="btn_sign_up">Sign Up</string>
+    <string name="btn_login">login</string>
+
+
+    <!-- Profile Screen Text -->
+    <string name="create_account_head">Create an Account</string>
+    <string name="create_account_desc">If you are a new user, please sign up here.</string>
+    <string name="full_name_hint">Full Name</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="btn_continue">Continue</string>
+
+    <!-- Login Screen Text -->
+    <string name="login_head">Welcome back!</string>
+    <string name="login_desc">Please login to continue</string>
+
+
+    <!-- Saved locations Screen Text -->
+    <string name="upload_btn_text">Upload</string>
+    <string name="upload_desc">You will be able to upload the saved locations to Karomber servers once you are online.</string>
+
+
+    <!-- String arrays for attraction point spinner -->
+    <string-array name="attraction_classes_list">
+        <item>Lake</item>
+        <item>Meadow</item>
+        <item>Water Fall </item>
+        <item>Top/Pass</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="hotel_classes_list">
+        <item>VIP</item>
+        <item>First Class</item>
+        <item>Economy</item>
+        <item>Camps</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="resturant_classes_list">
+        <item>Pakistani</item>
+        <item>Chinese</item>
+        <item>Fast Food</item>
+        <item>Local</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="bank_classes_list">
+        <item>ABL</item>
+        <item>UBL</item>
+        <item>NBL</item>
+        <item>HBL</item>
+        <item>BOK</item>
+        <item>Other</item>
+
+    </string-array>
+
+    <string-array name="mobile_wallet_classes_list">
+        <item>EasyPaisa</item>
+        <item>UBL Omni</item>
+        <item>Jazz Cash</item>
+        <item>HBL Konnect</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="gas_staion_classes_list">
+        <item>Petrol</item>
+        <item>CNG</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="rentals_classes_list">
+        <item>Car</item>
+        <item>Jeep</item>
+        <item>Hi-ACE</item>
+        <item>Coaster</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="shopping_mart_classes_list">
+        <item>Mart</item>
+        <item>Shop</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="toilet_classes_list">
+        <item>Pakitani</item>
+        <item>English</item>
+        <item>Other</item>
+    </string-array>
+</resources>

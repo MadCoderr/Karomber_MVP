@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "196943875302",
+    "firebase_url": "https://karombr-22391.firebaseio.com",
+    "project_id": "karombr-22391",
+    "storage_bucket": "karombr-22391.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:196943875302:android:759496e4667306ac",
+        "android_client_info": {
+          "package_name": "com.example.eapple.tripdatacollection"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "196943875302-uceka4dtss6egv4tsiq9pvqdqq6379qi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.eapple.tripdatacollection",
+            "certificate_hash": "9bf3dff30b0038627b6795a95d4476c78fdc34d4"
+          }
+        },
+        {
+          "client_id": "196943875302-s7i6hv2gdq6sor6es5vtt9dhutuae28c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWkV0u6PBKST43MQgEBt_DpwKHlLoS2U8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "196943875302-s7i6hv2gdq6sor6es5vtt9dhutuae28c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

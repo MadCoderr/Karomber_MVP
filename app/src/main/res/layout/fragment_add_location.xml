@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddLocationFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="116dp"
+            android:background="@drawable/app_bar_background">
+
+            <ImageView
+                android:id="@+id/cover_logo"
+                android:layout_width="160dp"
+                android:layout_height="60dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/karomberlogo" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <TextView
+                android:textStyle="bold"
+                android:id="@+id/header_text_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/header_str1"
+                android:textAlignment="center"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/header_text_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/header_str2"
+                android:textAlignment="center"
+                android:textColor="@color/grey" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/attraction_img"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                android:src="@drawable/tile_attraction" />
+
+            <ImageView
+                android:id="@+id/hotel_img"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                android:src="@drawable/tile_hotel" />
+
+            <ImageView
+                android:id="@+id/resturant_img"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                android:src="@drawable/tile_restaurant" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/bank_img"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                android:src="@drawable/tile_bank" />
+
+            <ImageView
+                android:id="@+id/gas_station_img"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                android:src="@drawable/tile_gasstation" />
+
+            <ImageView
+                android:id="@+id/mobile_wallet_img"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                android:src="@drawable/tile_mobilewallet" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/rental_img"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                android:src="@drawable/tile_rental" />
+
+            <ImageView
+                android:id="@+id/tolit_img"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                android:src="@drawable/tile_toilet" />
+
+            <ImageView
+                android:id="@+id/shoping_mart_img"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                android:src="@drawable/tile_shoppingmart" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/workshop_img"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                android:src="@drawable/tile_workshop" />
+
+            <ImageView
+                android:id="@+id/hospital_img"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                android:src="@drawable/tile_hospital" />
+
+            <ImageView
+                android:id="@+id/police_station_img"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                android:src="@drawable/tile_policestation" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <ImageView
+                android:layout_width="237dp"
+                android:layout_height="2dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/divider" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</ScrollView>
