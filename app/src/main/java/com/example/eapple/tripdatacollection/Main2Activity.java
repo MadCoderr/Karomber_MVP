@@ -25,6 +25,8 @@ public class Main2Activity extends AppCompatActivity {
     private static AddLocationFragment addLocationFragment;
     private static ProfileFragment profileFragment;
     private static SavedLocationsFragment savedLocationsFragment;
+    private gridViewFragment gridViewFragment;
+    private locationsResult locationsResult;
     private View rootView;
     private final String TAG = "Main2Activity";
 
@@ -33,15 +35,20 @@ public class Main2Activity extends AppCompatActivity {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            String tag;
             switch (item.getItemId()) {
                 case R.id.navigation_profile:
-                    loadFragment(profileFragment);
+                    tag = "profile_frag";
+                    loadFragment(profileFragment, tag);
                     return true;
                 case R.id.navigation_saved_locations:
-                    loadFragment(savedLocationsFragment);
+                    tag = "saved_loc_frag";
+                    loadFragment(savedLocationsFragment, tag);
                     return true;
                 case R.id.navigation_add_location:
-                    loadFragment(addLocationFragment);
+                    tag = "add_loc_frag";
+                    //loadFragment(addLocationFragment, tag);
+                    loadFragment(locationsResult, tag);
                     return true;
             }
             return false;
@@ -56,13 +63,15 @@ public class Main2Activity extends AppCompatActivity {
         addLocationFragment = new AddLocationFragment();
         savedLocationsFragment = new SavedLocationsFragment();
         profileFragment = new ProfileFragment();
+        gridViewFragment = new gridViewFragment();
+        locationsResult = new locationsResult();
 
         rootView = findViewById(R.id.root_view);
 
         final BottomNavigationView navigation = findViewById(R.id.navBar);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navigation.setSelectedItemId(R.id.navigation_add_location);
-        loadFragment(addLocationFragment);
+        loadFragment(addLocationFragment, "add_loc_frag");
 
         KeyboardVisibilityEvent.setEventListener(
                 this,
@@ -83,9 +92,35 @@ public class Main2Activity extends AppCompatActivity {
                 });
     }
 
-    private void loadFragment(android.support.v4.app.Fragment fragment) {
+    private void loadFragment(android.support.v4.app.Fragment fragment, String tag) {
+        int anim_left_id = R.anim.slide_in_right;
+        int anim_right_id = R.anim.slide_out_left;
+        if(getSupportFragmentManager().getBackStackEntryCount() > 0){
+            android.support.v4.app.Fragment f = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
+            if(f instanceof ProfileFragment){
+                anim_left_id = R.anim.slide_in_right;
+                anim_right_id = R.anim.slide_out_left;
+                //Log.d(TAG, "Profile Fragment");
+            }else if(f instanceof SavedLocationsFragment){
+                anim_left_id = R.anim.slide_in_left;
+                anim_right_id = R.anim.slide_out_right;
+                Log.d(TAG, "SavedLocations Fragment");
+            }else if(f instanceof locationsResult){
+                if(tag == "saved_loc_frag"){
+                    anim_left_id = R.anim.slide_in_right;
+                    anim_right_id = R.anim.slide_out_left;
+                } else if(tag == "profile_frag"){
+                    anim_left_id = R.anim.slide_in_left;
+                    anim_right_id = R.anim.slide_out_right;
+                }
+                Log.d(TAG, "Add Locations Fragment");
+            }
+        }
+        //Log.d(TAG, getCurrentFragment());
         android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_container, fragment);
+        fragmentTransaction.setCustomAnimations(anim_left_id, anim_right_id);
+        //fragmentTransaction.setTransition(R.id.)
+        fragmentTransaction.replace(R.id.fragment_container, fragment,tag);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }

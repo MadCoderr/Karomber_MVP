@@ -74,6 +74,7 @@ public class ProfileFragment extends Fragment {
          createAccountFragment = new CreateAccountFragment();
          signInFragment = new SignInFragment();
 
+
          //OnclickListners for Buttons
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override

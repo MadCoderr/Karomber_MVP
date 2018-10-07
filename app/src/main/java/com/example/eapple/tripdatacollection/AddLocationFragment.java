@@ -178,6 +178,7 @@ public class AddLocationFragment extends Fragment implements View.OnClickListene
             Bundle args = new Bundle();
             args.putString("head", head);
             addDataFrag.setArguments(args);
+            ft.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left);
             ft.replace(R.id.fragment_container, addDataFrag);
             ft.addToBackStack(null);
             ft.commit();
