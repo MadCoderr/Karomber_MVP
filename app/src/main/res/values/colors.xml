@@ -11,4 +11,8 @@
     <color name="grey_text_color">#C9CDCF</color>
     <color name="app_bar_color">#E0E0E0</color>
     <color name="dark_yellow_color">#FFE251</color>
+    <color name="white_transparent">#CDFFFFFF</color>
+    <color name="text_hint_color">#64ffffff</color>
+    <color name="forogt_password_color">#FFD675</color>
+    <color name="weather_bg">#5a000000</color>
 </resources>

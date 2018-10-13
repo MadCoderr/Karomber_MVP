@@ -1,21 +1,12 @@
 package com.example.eapple.tripdatacollection;
 
-import android.annotation.SuppressLint;
-import android.app.Fragment;
-import android.app.FragmentTransaction;
-import android.content.Context;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
-import android.util.DisplayMetrics;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent;
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEventListener;
@@ -25,7 +16,7 @@ public class Main2Activity extends AppCompatActivity {
     private static AddLocationFragment addLocationFragment;
     private static ProfileFragment profileFragment;
     private static SavedLocationsFragment savedLocationsFragment;
-    private gridViewFragment gridViewFragment;
+    private SearchCategoriesFragment gridViewFragment;
     private locationsResult locationsResult;
     private View rootView;
     private final String TAG = "Main2Activity";
@@ -63,7 +54,7 @@ public class Main2Activity extends AppCompatActivity {
         addLocationFragment = new AddLocationFragment();
         savedLocationsFragment = new SavedLocationsFragment();
         profileFragment = new ProfileFragment();
-        gridViewFragment = new gridViewFragment();
+        gridViewFragment = new SearchCategoriesFragment();
         locationsResult = new locationsResult();
 
         rootView = findViewById(R.id.root_view);

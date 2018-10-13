@@ -63,4 +63,36 @@
         <item name="android:textSize">12sp</item>
     </style>
 
+    <!-- Head text style -->
+    <style name="head_Text_style">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">31sp</item>
+    </style>
+
+    <!-- Messages text style text style -->
+    <style name="msgs_text_style">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <!-- Messages text style text style -->
+    <style name="fortog_password_text_style">
+        <item name="android:textColor">@color/forogt_password_color</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!-- Home page text styles -->
+    <style name="temp_text_style">
+        <item name="android:textSize">76sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="location_text_style">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+
+
 </resources>
