@@ -1,11 +1,11 @@
 <resources>
-    <string name="app_name">TripDataCollection</string>
+
+    <string name="app_name">Karomber</string>
     <string name="user_name_hint">User Name</string>
     <string name="login_btn_name">Login</string>
     <string name="sign_up_btn_name">SignUp</string>
     <string name="confirm_password_hint">Confirm Password</string>
     <string name="create_account_text">No account yet? Create one</string>
-    <string name="forgot_password_text">Forgot Password? Reset</string>
     <string name="reset_btn_name">Reset Password</string>
     <string name="back_btn_name">Back</string>
     <string name="upload_icon_title">Upload Icon</string>
@@ -13,6 +13,8 @@
     <string name="title_profile">Profile</string>
     <string name="title_add_location">Add Location</string>
     <string name="title_saved_locations">Saved</string>
+    <string name="title_home">Home</string>
+    <string name="title_Offline_Maps">Offline</string>
 
     <!-- Strings of main Screen -->
     <string name="header_str1">How are you going to contribute?</string>
@@ -48,13 +50,24 @@
     <string name="btn_continue">Continue</string>
 
     <!-- Login Screen Text -->
-    <string name="login_head">Welcome back!</string>
-    <string name="login_desc">Please login to continue</string>
+    <string name="login_head">LOGIN IN</string>
+    <string name="login_msg">Welcome back!</string>
+    <string name="forgot_password_text">Forgot Password?</string>
 
 
     <!-- Saved locations Screen Text -->
     <string name="upload_btn_text">Upload</string>
     <string name="upload_desc">You will be able to upload the saved locations to Karomber servers once you are online.</string>
+
+
+    <!-- SignUP Screens Strings -->
+    <string name="su_head">Sign Up</string>
+    <string name="su1_msg">Tell us your name :)</string>
+    <string name="su2_msg">and your email, please?</string>
+    <string name="su3_msg">Choose a strong password</string>
+
+    <!-- Home screen text -->
+    <string name="searchBar_hint">Hey, Where are you heading?</string>
 
 
     <!-- String arrays for attraction point spinner -->
@@ -89,7 +102,6 @@
         <item>HBL</item>
         <item>BOK</item>
         <item>Other</item>
-
     </string-array>
 
     <string-array name="mobile_wallet_classes_list">
@@ -125,4 +137,15 @@
         <item>English</item>
         <item>Other</item>
     </string-array>
+
+    <!-- Profile screens icons description list -->
+    <string-array name="icons_description_list">
+        <item>Edit Profile</item>
+        <item>Settings</item>
+        <item>Feedback</item>
+
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

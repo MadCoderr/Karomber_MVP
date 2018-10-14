@@ -4,19 +4,20 @@ package com.example.eapple.tripdatacollection;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toolbar;
-import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
+
+import com.example.eapple.tripdatacollection.adapter.ProfileAdpater;
 
 import java.util.Objects;
 
@@ -27,13 +28,20 @@ import java.util.Objects;
 public class ProfileFragment extends Fragment {
 
     private final String TAG = "ProfileFragment";
-    private TextView profileDesc;
-    private Button btnSignUP;
-    private Button btnLogin;
+    private ImageView profileImg;
+    private TextView userName;
+    private TextView address;
     private View view;
-    private CreateAccountFragment createAccountFragment;
+    RecyclerView recyclerView;
+    private SignUp3Fragment signUp3Fragment;
     private SignInFragment signInFragment;
     private android.support.v7.widget.Toolbar toolbar;
+    private String[] descriptions;
+    private int[] icons = {
+            R.drawable.edit_profile_icon,
+            R.drawable.settings_icon,
+            R.drawable.feedback_icon
+    };
 
 
     public ProfileFragment() {
@@ -50,9 +58,20 @@ public class ProfileFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_profile, container, false);
 
         //Initializing objects
-        profileDesc = view.findViewById(R.id.tv_profile_desc);
-        btnLogin = view.findViewById(R.id.btn_login);
-        btnSignUP = view.findViewById(R.id.btn_signUp);
+        recyclerView = view.findViewById(R.id.profile_recyler_view);
+        profileImg = view.findViewById(R.id.profile_image);
+        userName = view.findViewById(R.id.tv_name);
+        address = view.findViewById(R.id.tv_address);
+        descriptions = getResources().getStringArray(R.array.icons_description_list);
+        recyclerView.setHasFixedSize(true);
+
+        LinearLayoutManager manager = new LinearLayoutManager(getActivity());
+        manager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(manager);
+
+        ProfileAdpater adpater = new ProfileAdpater(getActivity(), icons, descriptions);
+        recyclerView.setAdapter(adpater);
+
 
         //Getting reference to actionbar and doing customization
         toolbar = view.findViewById(R.id.app_bar_new);
@@ -71,24 +90,8 @@ public class ProfileFragment extends Fragment {
 
 
         //Initializing fragments and managers
-         createAccountFragment = new CreateAccountFragment();
+         signUp3Fragment = new SignUp3Fragment();
          signInFragment = new SignInFragment();
-
-         //OnclickListners for Buttons
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loadFragment(signInFragment);
-            }
-        });
-
-        btnSignUP.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loadFragment(createAccountFragment);
-            }
-        });
-
 
         return view;
 

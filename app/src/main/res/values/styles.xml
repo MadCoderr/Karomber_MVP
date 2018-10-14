@@ -6,6 +6,14 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowAnimationStyle">@style/customActivityAnimation</item>
+    </style>
+
+    <style name="customActivityAnimation" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_in_right</item>
+        <item name="android:activityOpenExitAnimation">@anim/slide_out_left</item>
+        <item name="android:activityCloseEnterAnimation">@anim/slide_in_left</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_out_right</item>
     </style>
 
     <style name="btn_style">
@@ -31,7 +39,83 @@
         <item name="android:paddingRight">10dp</item>
         <item name="android:paddingTop">5dp</item>
         <item name="android:paddingBottom">5dp</item>
-
     </style>
+
+    <!-- Text styles -->
+    <style name="attractoin_name_style">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">19sp</item>
+    </style>
+
+    <style name="attractoin_tag_style">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="attractoin_distance_style">
+        <item name="android:textColor">@color/dark_yellow_color</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="attractoin_timeToReach_style">
+        <item name="android:textColor">@color/dark_yellow_color</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <!-- Head text style -->
+    <style name="head_Text_style">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">31sp</item>
+    </style>
+
+    <!-- Messages text style text style -->
+    <style name="msgs_text_style">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <!-- Messages text style text style -->
+    <style name="fortog_password_text_style">
+        <item name="android:textColor">@color/forogt_password_color</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!-- Home screen text styles -->
+    <style name="temp_text_style">
+        <item name="android:textSize">76sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="location_text_style">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!-- search categories screen text styles -->
+    <style name="temp_text_style_small">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="location_text_small_style" parent="location_text_style">
+    </style>
+    
+    <style name="attractoin_distance_small_style" parent="attractoin_distance_style">
+    </style>
+
+    <!-- Search Result screen text styles -->
+    <style name="search_result_msg_style">
+        <item name="android:textSize">19sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="search_result_count_style">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+
 
 </resources>

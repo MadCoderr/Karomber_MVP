@@ -19,16 +19,13 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 
 /**
- * @file FirebaseUpdates.java
+ * The type Fire base updates.
+ *
  * @author Haroon khan
+ * @file FirebaseUpdates.java
  * @date 08 Sept, 2018
- *
- * @section Description
- * This file has functions to update data from local
- * database to main firebase database
- *
+ * @section Description  This file has functions to update data from local database to main firebase database
  */
-
 public class fireBaseUpdates extends AppCompatActivity implements View.OnClickListener {
 
     private EditText userEmailField;
@@ -213,11 +210,14 @@ public class fireBaseUpdates extends AppCompatActivity implements View.OnClickLi
                 createAccount(email, password, confirmPassword);
             }
         } else if (i == R.id.continue_btn) {
-            Intent intent = new Intent(this, SignInActivity.class);
-            startActivity(intent);
+            //Intent intent = new Intent(this, SignInActivity.class);
+            //startActivity(intent);
         }
     }
 
+    /**
+     * Change ui.
+     */
     public void changeUI() {
         loginBtn.setVisibility(View.VISIBLE);
     }

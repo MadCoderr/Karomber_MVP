@@ -51,7 +51,17 @@ dependencies {
 
     implementation 'com.google.firebase:firebase-database:16.0.1'
 
+    //Keyboard visibility testing
     implementation 'net.yslibrary.keyboardvisibilityevent:keyboardvisibilityevent:2.1.0'
+
+    //animations library
+    implementation 'com.github.hajiyevelnur92:intentanimation:1.0'
+
+    //RecyclerView Support Library
+    implementation 'com.android.support:recyclerview-v7:27.0.0'
+
+    //Round Image View Library
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
 
 }
 

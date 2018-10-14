@@ -14,23 +14,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Main2Activity"
-            android:windowSoftInputMode="adjustResize">
+            android:name=".SplashScreenActivity"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ViewSavedLocations" />
         <activity android:name=".fireBaseUpdates" />
-        <activity android:name=".SignInActivity" />
         <activity android:name=".ForgotPasswordActivity" />
-        <activity android:name=".UploadDataActivity" />
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/title_activity_main2" />
-        <activity android:name=".SplashScreenActivity"></activity>
+        <activity android:name=".Main2Activity"/>
     </application>
 
 </manifest>
