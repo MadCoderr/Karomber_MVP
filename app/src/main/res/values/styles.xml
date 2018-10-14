@@ -81,7 +81,7 @@
         <item name="android:textSize">14sp</item>
     </style>
 
-    <!-- Home page text styles -->
+    <!-- Home screen text styles -->
     <style name="temp_text_style">
         <item name="android:textSize">76sp</item>
         <item name="android:textStyle">bold</item>
@@ -90,6 +90,29 @@
 
     <style name="location_text_style">
         <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!-- search categories screen text styles -->
+    <style name="temp_text_style_small">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="location_text_small_style" parent="location_text_style">
+    </style>
+    
+    <style name="attractoin_distance_small_style" parent="attractoin_distance_style">
+    </style>
+
+    <!-- Search Result screen text styles -->
+    <style name="search_result_msg_style">
+        <item name="android:textSize">19sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="search_result_count_style">
+        <item name="android:textSize">13sp</item>
         <item name="android:textColor">@color/white</item>
     </style>
 

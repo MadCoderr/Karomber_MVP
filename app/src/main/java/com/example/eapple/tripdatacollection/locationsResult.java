@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.eapple.tripdatacollection.adapter.LocationResultAdapter;
+import com.example.eapple.tripdatacollection.adapter.SearchResultAdapter;
 
 
 /**
@@ -36,7 +36,7 @@ public class locationsResult extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_locations_result, container, false);
-        LocationResultAdapter adapter = new LocationResultAdapter(getActivity(), images, names, tags, distances, timeToReach);
+        SearchResultAdapter adapter = new SearchResultAdapter(getActivity(), images, names, tags, distances, timeToReach);
         recyclerView = view.findViewById(R.id.recycler_view_new);
         recyclerView.setAdapter(adapter);
         return view;

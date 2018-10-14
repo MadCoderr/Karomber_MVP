@@ -9,12 +9,12 @@
         />
 
     <item
-        android:id="@+id/navigation_add_location"
-        android:icon="@drawable/ic_action_add"
-        android:title="@string/title_add_location" />
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home"
+        android:title="@string/title_home" />
 
     <item
-        android:id="@+id/navigation_saved_locations"
-        android:icon="@drawable/ic_action_saved"
-        android:title="@string/title_saved_locations" />
+        android:id="@+id/navigation_offline_maps"
+        android:icon="@drawable/ic_download"
+        android:title="@string/title_Offline_Maps" />
 </menu>

@@ -3,6 +3,7 @@ package com.example.eapple.tripdatacollection.adapter;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,10 +12,9 @@ import android.widget.TextView;
 
 import com.example.eapple.tripdatacollection.R;
 
-import java.util.zip.Inflater;
+public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapter.MyHolder> {
 
-public class LocationResultAdapter extends RecyclerView.Adapter<LocationResultAdapter.MyHolder> {
-
+    private final String TAG = "SearchResultAdapter";
     private Context context;
     private int [] images;
     private String [] names;
@@ -33,7 +33,8 @@ public class LocationResultAdapter extends RecyclerView.Adapter<LocationResultAd
      * @param distances
      * @param timeToReach
      */
-    public LocationResultAdapter(Context context, int[] images, String[] names, String[] tags, String[] distances, String[] timeToReach) {
+    public SearchResultAdapter(Context context, int[] images, String[] names, String[] tags, String[] distances, String[] timeToReach) {
+        Log.d(TAG, "SearchResultAdapter: Constructor called");
         this.context = context;
         this.images = images;
         this.names = names;
@@ -46,15 +47,19 @@ public class LocationResultAdapter extends RecyclerView.Adapter<LocationResultAd
     @NonNull
     @Override
     public MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View layout = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_locations_result, null);
+        View layout = LayoutInflater.from(parent.getContext()).inflate(R.layout.search_result_row, null);
         MyHolder myHolder = new MyHolder(layout);
         return myHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
-
+        Log.d(TAG, "onBindViewHolder called");
         holder.imageView.setImageResource(images[position]);
+        holder.tv_distance.setText(distances[position]);
+        holder.tv_name.setText(distances[position]);
+        holder.tv_tag.setText(distances[position]);
+        holder.tv_time_to_reach.setText(timeToReach[position]);
     }
 
     @Override

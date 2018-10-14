@@ -25,14 +25,12 @@ public class SearchCategoriesFragment extends Fragment {
     public SearchCategoriesFragment() {
         // Required empty public constructor
     }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_search_categories, container, false);
-        recyclerView = view.findViewById(R.id.recycler_view);
+        recyclerView = view.findViewById(R.id.rv_search_cat);
         layoutManager = new GridLayoutManager(getActivity(), 3);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
@@ -42,6 +40,7 @@ public class SearchCategoriesFragment extends Fragment {
                 R.drawable.tile_rental, R.drawable.tile_toilet, R.drawable.tile_shoppingmart,
                 R.drawable.tile_workshop, R.drawable.tile_hospital, R.drawable.tile_policestation,
                 R.drawable.tile_workshop, R.drawable.tile_hospital, R.drawable.tile_policestation};
+
 
         MyAdapter myAdapter = new MyAdapter(getActivity(), imgId);
         recyclerView.setAdapter(myAdapter);

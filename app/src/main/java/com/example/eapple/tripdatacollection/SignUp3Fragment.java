@@ -61,7 +61,7 @@ public class SignUp3Fragment extends Fragment {
         etEmail = view.findViewById(R.id.email_field);
         etPassword = view.findViewById(R.id.password_field);
         btnContinue = view.findViewById(R.id.continue_btn);
-        etConfirmPassword = view.findViewById(R.id.confirm_password_field);
+        //etConfirmPassword = view.findViewById(R.id.confirm_password_field);
         toolbar = view.findViewById(R.id.app_bar_new);
         mAuth = FirebaseAuth.getInstance();
 

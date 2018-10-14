@@ -13,11 +13,9 @@ import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEventList
 
 public class Main2Activity extends AppCompatActivity {
 
-    private static AddLocationFragment addLocationFragment;
     private static ProfileFragment profileFragment;
-    private static SavedLocationsFragment savedLocationsFragment;
-    private SearchCategoriesFragment gridViewFragment;
-    private locationsResult locationsResult;
+    private SearchCategoriesFragment searchCategoriesFragment;
+    private searchResultListFragment searchResultListFragment;
     private View rootView;
     private final String TAG = "Main2Activity";
 
@@ -32,14 +30,14 @@ public class Main2Activity extends AppCompatActivity {
                     tag = "profile_frag";
                     loadFragment(profileFragment, tag);
                     return true;
-                case R.id.navigation_saved_locations:
-                    tag = "saved_loc_frag";
-                    loadFragment(savedLocationsFragment, tag);
+                case R.id.navigation_offline_maps:
+                    tag = "offline_maps_frag";
+                    loadFragment(searchResultListFragment, tag);
                     return true;
-                case R.id.navigation_add_location:
-                    tag = "add_loc_frag";
-                    //loadFragment(addLocationFragment, tag);
-                    loadFragment(locationsResult, tag);
+                case R.id.navigation_home:
+                    tag = "home_frag";
+                    loadFragment(searchCategoriesFragment, tag);
+                    //loadFragment(locationsResult, tag);
                     return true;
             }
             return false;
@@ -51,18 +49,18 @@ public class Main2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        addLocationFragment = new AddLocationFragment();
-        savedLocationsFragment = new SavedLocationsFragment();
+        //addLocationFragment = new AddLocationFragment();
+        //savedLocationsFragment = new SavedLocationsFragment();
         profileFragment = new ProfileFragment();
-        gridViewFragment = new SearchCategoriesFragment();
-        locationsResult = new locationsResult();
+        searchCategoriesFragment = new SearchCategoriesFragment();
+        searchResultListFragment = new searchResultListFragment();
 
         rootView = findViewById(R.id.root_view);
 
         final BottomNavigationView navigation = findViewById(R.id.navBar);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        navigation.setSelectedItemId(R.id.navigation_add_location);
-        loadFragment(addLocationFragment, "add_loc_frag");
+        navigation.setSelectedItemId(R.id.navigation_home);
+        //loadFragment(addLocationFragment, "add_loc_frag");
 
         KeyboardVisibilityEvent.setEventListener(
                 this,
@@ -86,12 +84,13 @@ public class Main2Activity extends AppCompatActivity {
     private void loadFragment(android.support.v4.app.Fragment fragment, String tag) {
         int anim_left_id = R.anim.slide_in_right;
         int anim_right_id = R.anim.slide_out_left;
+        /*
         if(getSupportFragmentManager().getBackStackEntryCount() > 0){
             android.support.v4.app.Fragment f = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
             if(f instanceof ProfileFragment){
                 anim_left_id = R.anim.slide_in_right;
                 anim_right_id = R.anim.slide_out_left;
-                //Log.d(TAG, "Profile Fragment");
+                /*Log.d(TAG, "Profile Fragment");
             }else if(f instanceof SavedLocationsFragment){
                 anim_left_id = R.anim.slide_in_left;
                 anim_right_id = R.anim.slide_out_right;
@@ -106,7 +105,7 @@ public class Main2Activity extends AppCompatActivity {
                 }
                 Log.d(TAG, "Add Locations Fragment");
             }
-        }
+        }*/
         //Log.d(TAG, getCurrentFragment());
         android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.setCustomAnimations(anim_left_id, anim_right_id);

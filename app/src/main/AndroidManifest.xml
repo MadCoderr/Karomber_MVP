@@ -22,14 +22,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ViewSavedLocations" />
         <activity android:name=".fireBaseUpdates" />
-        <activity android:name=".SignInActivity" />
         <activity android:name=".ForgotPasswordActivity" />
-        <activity android:name=".UploadDataActivity" />
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/title_activity_main2" />
         <activity android:name=".Main2Activity"/>
     </application>
 
