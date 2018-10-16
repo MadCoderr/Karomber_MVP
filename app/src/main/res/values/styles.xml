@@ -9,6 +9,10 @@
         <item name="android:windowAnimationStyle">@style/customActivityAnimation</item>
     </style>
 
+    <style name="CustomTheme" parent="AppTheme">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
     <style name="customActivityAnimation" parent="@android:style/Animation.Activity">
         <item name="android:activityOpenEnterAnimation">@anim/slide_in_right</item>
         <item name="android:activityOpenExitAnimation">@anim/slide_out_left</item>

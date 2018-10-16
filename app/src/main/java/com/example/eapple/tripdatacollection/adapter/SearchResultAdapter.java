@@ -77,11 +77,11 @@ public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapte
 
         public MyHolder(View itemView) {
             super(itemView);
-            imageView = itemView.findViewById(R.id.loc_img);
-            tv_name = itemView.findViewById(R.id.loc_name);
-            tv_tag = itemView.findViewById(R.id.loc_tag);
-            tv_distance = itemView.findViewById(R.id.loc_distance);
-            tv_time_to_reach = itemView.findViewById(R.id.loc_timeToReach);
+            imageView = itemView.findViewById(R.id.img_item_list);
+            tv_name = itemView.findViewById(R.id.lbl_name_item_list);
+            tv_tag = itemView.findViewById(R.id.lbl_search_name_item_list);
+            tv_distance = itemView.findViewById(R.id.lbl_distance_item_list);
+            tv_time_to_reach = itemView.findViewById(R.id.lbl_max_time_item_list);
         }
     }
 

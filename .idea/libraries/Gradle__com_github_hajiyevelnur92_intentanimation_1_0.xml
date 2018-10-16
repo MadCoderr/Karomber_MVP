@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.hajiyevelnur92:intentanimation-1.0">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/intentanimation-1.0.aar/59cc338ca208ec883692a075aa3b84e0/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/intentanimation-1.0.aar/59cc338ca208ec883692a075aa3b84e0/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/intentanimation-1.0.aar/f1d59ba32f68053cf2747f3c3064d333/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/intentanimation-1.0.aar/f1d59ba32f68053cf2747f3c3064d333/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

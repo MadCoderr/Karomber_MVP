@@ -1,20 +1,29 @@
 package com.example.eapple.tripdatacollection;
 
+
+import android.annotation.SuppressLint;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreSettings;
 
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent;
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEventListener;
 
 public class Main2Activity extends AppCompatActivity {
 
+    private HomeFragment homeFragment;
     private static ProfileFragment profileFragment;
-    private SearchCategoriesFragment searchCategoriesFragment;
+   // private SearchCategoriesFragment searchCategoriesFragment;
     private searchResultListFragment searchResultListFragment;
     private View rootView;
     private final String TAG = "Main2Activity";
@@ -36,7 +45,7 @@ public class Main2Activity extends AppCompatActivity {
                     return true;
                 case R.id.navigation_home:
                     tag = "home_frag";
-                    loadFragment(searchCategoriesFragment, tag);
+                    loadFragment(homeFragment, tag);
                     //loadFragment(locationsResult, tag);
                     return true;
             }
@@ -49,10 +58,17 @@ public class Main2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
+        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+        FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
+                .setTimestampsInSnapshotsEnabled(true)
+                .build();
+        firestore.setFirestoreSettings(settings);
+
         //addLocationFragment = new AddLocationFragment();
         //savedLocationsFragment = new SavedLocationsFragment();
+        homeFragment = new HomeFragment();
         profileFragment = new ProfileFragment();
-        searchCategoriesFragment = new SearchCategoriesFragment();
+       // searchCategoriesFragment = new SearchCategoriesFragment();
         searchResultListFragment = new searchResultListFragment();
 
         rootView = findViewById(R.id.root_view);
@@ -81,7 +97,8 @@ public class Main2Activity extends AppCompatActivity {
                 });
     }
 
-    private void loadFragment(android.support.v4.app.Fragment fragment, String tag) {
+    @SuppressLint("ResourceType")
+    private void loadFragment(Fragment fragment, String tag) {
         int anim_left_id = R.anim.slide_in_right;
         int anim_right_id = R.anim.slide_out_left;
         /*
@@ -107,12 +124,19 @@ public class Main2Activity extends AppCompatActivity {
             }
         }*/
         //Log.d(TAG, getCurrentFragment());
-        android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setCustomAnimations(anim_left_id, anim_right_id);
-        //fragmentTransaction.setTransition(R.id.)
-        fragmentTransaction.replace(R.id.fragment_container, fragment,tag);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
+
+        FragmentManager manager = getSupportFragmentManager();
+        manager.beginTransaction()
+                .setCustomAnimations(anim_left_id, anim_right_id)
+                .replace(R.id.fragment_container, fragment, tag)
+                .commit();
+//
+//        FragmentTransaction fragmentTransaction = getSupportManager().beginTransaction();
+//        fragmentTransaction.setCustomAnimations(anim_left_id, anim_right_id);
+//        //fragmentTransaction.setTransition(R.id.)
+//        fragmentTransaction.replace(R.id.fragment_container, fragment,tag);
+//        fragmentTransaction.addToBackStack(null);
+//        fragmentTransaction.commit();
     }
 
 }

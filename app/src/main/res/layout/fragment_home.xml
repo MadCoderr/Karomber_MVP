@@ -8,6 +8,7 @@
     android:background="@drawable/home_bg"
     >
 
+
     <android.support.constraint.ConstraintLayout
             android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
@@ -42,6 +43,13 @@
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
             app:layout_constraintVertical_bias="0.0">
 
+            <!-- Dummy item to prevent AutoCompleteTextView from receiving focus -->
+            <LinearLayout
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:layout_width="0px"
+                android:layout_height="0px"/>
+
             <Button
                 android:id="@+id/btn_search"
                 android:layout_width="40dp"
@@ -53,6 +61,8 @@
                 tools:layout_editor_absoluteX="240dp"
                 tools:layout_editor_absoluteY="300dp" />
 
+            <!-- :nextFocusUp and :nextFocusLeft have been set to the id of this component
+                  to prevent the dummy from receiving focus again -->
             <EditText
                 android:id="@+id/tv_search"
                 android:layout_width="239dp"
@@ -65,8 +75,11 @@
                 android:hint="@string/searchBar_hint"
                 android:inputType="textPersonName"
                 android:textColorHint="@color/white"
-                tools:layout_editor_absoluteX="25dp"
-                tools:layout_editor_absoluteY="300dp" />
+                android:textColor="@color/white"
+                app:layout_editor_absoluteX="25dp"
+                app:layout_editor_absoluteY="300dp"
+                android:nextFocusUp="@id/tv_search"
+                android:nextFocusLeft="@id/tv_search"/>
         </RelativeLayout>
 
         <android.support.constraint.ConstraintLayout

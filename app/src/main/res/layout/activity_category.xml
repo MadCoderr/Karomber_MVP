@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.CategoryActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/rel_layout_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/img_item_category"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/error_holder_image" />
+
+        <TextView
+            android:id="@+id/lbl_item_title_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Attraction Points in Naran"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_alignBottom="@id/img_item_category"
+            android:padding="10dp"/>
+
+        <TextView
+            android:id="@+id/lbl_item_count_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="3 results"
+            android:textColor="@color/white"
+            android:layout_alignBottom="@id/img_item_category"
+            android:layout_alignEnd="@id/img_item_category"
+            android:layout_alignRight="@id/img_item_category"
+            android:padding="10dp"/>
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rec_view_item_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:layout_below="@id/img_item_category"/>
+
+    </RelativeLayout>
+
+    <ProgressBar
+        android:id="@+id/pro_bar_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        />
+
+</RelativeLayout>

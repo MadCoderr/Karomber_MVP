@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/home_bg"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/layout_container_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <LinearLayout
+        android:id="@+id/lin_layout_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="50dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/weather_bg"
+            android:layout_margin="16dp">
+
+            <ImageView
+                android:id="@+id/weather_status_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/add_button_icon"
+                android:paddingTop="30dp"
+                android:layout_margin="10dp" />
+
+            <TextView
+                android:id="@+id/tv_temperature"
+                style="@style/temp_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/weather_status_img"
+                android:layout_toEndOf="@id/weather_status_img"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:text="20 C"
+                />
+
+            <TextView
+                android:id="@+id/tv_location"
+                style="@style/location_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Peshawar, Paksitan"
+                android:layout_below="@id/tv_temperature"
+                android:layout_alignRight="@id/tv_temperature"
+                android:layout_alignEnd="@id/tv_temperature"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:padding="5dp"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_design"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:paddingRight="10dp">
+
+
+        <!-- Dummy item to prevent AutoCompleteTextView from receiving focus -->
+        <LinearLayout
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_width="0px"
+            android:layout_height="0px"/>
+
+
+        <Button
+            android:id="@+id/btn_search"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/tv_search"
+            android:layout_toRightOf="@+id/tv_search"
+            android:background="@drawable/search_btn"/>
+
+        <EditText
+            android:id="@+id/tv_search"
+            android:layout_width="239dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            android:ems="10"
+            android:hint="@string/searchBar_hint"
+            android:inputType="textPersonName"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:nextFocusUp="@id/tv_search"
+            android:nextFocusLeft="@id/tv_search"
+            />
+
+    </RelativeLayout>
+
+</LinearLayout>
