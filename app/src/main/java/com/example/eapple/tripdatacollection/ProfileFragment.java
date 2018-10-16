@@ -112,4 +112,9 @@ public class ProfileFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        HomeFragment.IS_TOUCH = false;
+    }
 }

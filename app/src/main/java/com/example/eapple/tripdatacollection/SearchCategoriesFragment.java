@@ -14,6 +14,7 @@ import com.example.eapple.tripdatacollection.adapter.MyAdapter;
 
 /**
  * A simple {@link Fragment} subclass.
+ * NOTE -> It is not being used anymore.
  */
 
 public class SearchCategoriesFragment extends Fragment {

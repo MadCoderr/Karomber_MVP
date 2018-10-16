@@ -2,7 +2,6 @@ package com.example.eapple.tripdatacollection;
 
 
 import android.annotation.SuppressLint;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -24,7 +23,7 @@ public class Main2Activity extends AppCompatActivity {
     private HomeFragment homeFragment;
     private static ProfileFragment profileFragment;
    // private SearchCategoriesFragment searchCategoriesFragment;
-    private searchResultListFragment searchResultListFragment;
+    private SavedListFragment SavedListFragment;
     private View rootView;
     private final String TAG = "Main2Activity";
 
@@ -41,7 +40,7 @@ public class Main2Activity extends AppCompatActivity {
                     return true;
                 case R.id.navigation_offline_maps:
                     tag = "offline_maps_frag";
-                    loadFragment(searchResultListFragment, tag);
+                    loadFragment(SavedListFragment, tag);
                     return true;
                 case R.id.navigation_home:
                     tag = "home_frag";
@@ -69,7 +68,7 @@ public class Main2Activity extends AppCompatActivity {
         homeFragment = new HomeFragment();
         profileFragment = new ProfileFragment();
        // searchCategoriesFragment = new SearchCategoriesFragment();
-        searchResultListFragment = new searchResultListFragment();
+        SavedListFragment = new SavedListFragment();
 
         rootView = findViewById(R.id.root_view);
 

@@ -47,9 +47,7 @@ public class SearchFilterFragment extends Fragment {
     SearchableAdapter adapter;
 
     FirebaseFirestore store;
-    boolean isTouch = false;
     List<String> listOfNames;
-
 
 
     public SearchFilterFragment() {
@@ -77,39 +75,24 @@ public class SearchFilterFragment extends Fragment {
         InputMethodManager manager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
         manager.showSoftInput(searchQuery, InputMethodManager.SHOW_IMPLICIT);
 
+        store.collection("collection_names")
+                .document("names")
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        if (documentSnapshot.exists()) {
+                            CollectionNames names = documentSnapshot.toObject(CollectionNames.class);
+                            listOfNames.addAll(names.getNames());
+                            adapter = new SearchableAdapter(getContext(), listOfNames, searchQuery);
+                            recycler.setAdapter(adapter);
 
-        // check to see is the user touch th edit text
-        // if touch then set the adapter, ofcourse we want it to set it only once.
-        // thats why we are using check.
-        searchQuery.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (!isTouch) {
-                    isTouch = true;
-                    store.collection("collection_names")
-                            .document("names")
-                            .get()
-                            .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                                @Override
-                                public void onSuccess(DocumentSnapshot documentSnapshot) {
-                                    proBar.setVisibility(View.GONE);
-                                    if(documentSnapshot.exists()) {
-                                        CollectionNames names = documentSnapshot.toObject(CollectionNames.class);
-                                        listOfNames.addAll(names.getNames());
-                                        adapter = new SearchableAdapter(getContext(), listOfNames, searchQuery);
-                                        recycler.setVisibility(View.VISIBLE);
-                                        recycler.setAdapter(adapter);
-
-                                    } else {
-                                        Log.i("firebase_check", "no document found");
-                                        Toast.makeText(getContext(), "no record found", Toast.LENGTH_SHORT).show();
-                                    }
-                                }
-                            });
-                }
-                return false;
-            }
-        });
+                        } else {
+                            Log.i("firebase_check", "no document found");
+                            Toast.makeText(getContext(), "no record found", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
 
         // it will check the text being enter by user in edit text
         searchQuery.addTextChangedListener(new TextWatcher() {
@@ -123,11 +106,15 @@ public class SearchFilterFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if (listOfNames.isEmpty()) {
-                    Toast.makeText(getContext(), "Please wait fetching list", Toast.LENGTH_SHORT).show();
-                } else {
-                    String text = searchQuery.getText().toString();
-                    adapter.filter(text);
+                if (!listOfNames.isEmpty())
+                {
+                    if (editable.length() > 0) {
+                        recycler.setVisibility(View.VISIBLE);
+                        String text = searchQuery.getText().toString();
+                        adapter.filter(text);
+                    } else {
+                        recycler.setVisibility(View.INVISIBLE);
+                    }
                 }
             }
         });
@@ -137,7 +124,6 @@ public class SearchFilterFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 HomeFragment.IS_TOUCH = false;
-                isTouch = false;
                 searchQuery.getText().clear();
                 getActivity().onBackPressed();
             }
@@ -186,7 +172,6 @@ public class SearchFilterFragment extends Fragment {
     @Override
     public void onPause() {
         super.onPause();
-        isTouch = false;
         HomeFragment.IS_TOUCH = false;
         searchQuery.getText().clear();
     }
