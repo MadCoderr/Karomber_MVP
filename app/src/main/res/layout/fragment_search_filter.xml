@@ -30,6 +30,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@id/btn_cancel_search"
                 android:layout_toRightOf="@id/btn_cancel_search"
+                android:imeOptions="actionDone"
                 android:focusableInTouchMode="true"
                 tools:text="Naran"
                 android:maxLines="1"/>

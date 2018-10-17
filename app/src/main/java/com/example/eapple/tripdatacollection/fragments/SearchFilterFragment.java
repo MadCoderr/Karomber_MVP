@@ -11,13 +11,16 @@ import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.eapple.tripdatacollection.HomeFragment;
@@ -84,6 +87,17 @@ public class SearchFilterFragment extends Fragment {
                         }
                     }
                 });
+
+        searchQuery.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                if (i == EditorInfo.IME_ACTION_DONE || i == EditorInfo.IME_ACTION_UNSPECIFIED) {
+                    hideKeyboard();
+                    return true;
+                }
+                return false;
+            }
+        });
 
         // it will check the text being enter by user in edit text
         searchQuery.addTextChangedListener(new TextWatcher() {
