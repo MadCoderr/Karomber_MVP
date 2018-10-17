@@ -8,10 +8,36 @@
     android:background="@color/colorAccent"
     tools:context=".activities.DetailActivity">
 
-    <com.daimajia.slider.library.SliderLayout
-        android:id="@+id/slider_layout_detail"
-        android:layout_width="match_parent"
-        android:layout_height="280dp"/>
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+       <com.daimajia.slider.library.SliderLayout
+           android:id="@+id/slider_layout_detail"
+           android:layout_width="match_parent"
+           android:layout_height="280dp"/>
+
+       <ImageButton
+           android:id="@+id/btn_back_detail"
+           android:layout_width="50dp"
+           android:layout_height="50dp"
+           android:src="@drawable/back_btn_bg"
+           android:layout_alignParentLeft="true"
+           android:layout_alignParentStart="true"
+           android:onClick="onBackButtonPressed"
+           android:background="?android:attr/selectableItemBackground"/>
+
+       <ImageButton
+           android:id="@+id/btn_pop_up_menu_detail"
+           android:layout_width="50dp"
+           android:layout_height="50dp"
+           android:layout_alignParentRight="true"
+           android:layout_alignParentEnd="true"
+           android:background="?android:attr/selectableItemBackground"
+           app:srcCompat="@drawable/ic_more_vert_"
+           android:onClick="showPopUpMenu"/>
+
+   </RelativeLayout>
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"

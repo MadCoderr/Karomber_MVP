@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:title="@string/thumbnail_view"
+        android:id="@+id/action_thumb_nail"
+        android:orderInCategory="0"/>
+
+    <item
+        android:title="@string/list_view"
+        android:id="@+id/actoin_list_view"
+        android:orderInCategory="1"/>
+
+</menu>

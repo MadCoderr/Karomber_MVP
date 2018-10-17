@@ -6,7 +6,9 @@ import android.support.multidex.MultiDex;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuInflater;
 import android.view.View;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import com.daimajia.slider.library.SliderLayout;
@@ -45,4 +47,16 @@ public class DetailActivity extends AppCompatActivity {
     // write code to show the map
     public void showMap(View view) {
     }
+
+    public void onBackButtonPressed(View view) {
+        finish();
+    }
+
+    public void showPopUpMenu(View view) {
+        PopupMenu menu = new PopupMenu(this, view);
+        MenuInflater inflater = menu.getMenuInflater();
+        inflater.inflate(R.menu.pop_up_menu, menu.getMenu());
+        menu.show();
+    }
+
 }

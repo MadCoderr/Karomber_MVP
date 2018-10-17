@@ -5,10 +5,12 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -103,5 +105,16 @@ public class CategoryActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
+    }
+
+    public void onBackButtonPressed(View view) {
+        finish();
+    }
+
+    public void showPopUpMenu(View view) {
+        PopupMenu menu = new PopupMenu(this, view);
+        MenuInflater inflater = menu.getMenuInflater();
+        inflater.inflate(R.menu.pop_up_menu, menu.getMenu());
+        menu.show();
     }
 }

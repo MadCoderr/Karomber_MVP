@@ -4,6 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.example.eapple.tripdatacollection.R;
@@ -22,6 +25,7 @@ public class SearchCategoriesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        hideStatusBar();
         setContentView(R.layout.activity_search_categories);
 
         recycler = findViewById(R.id.rv_search_cat);
@@ -32,7 +36,17 @@ public class SearchCategoriesActivity extends AppCompatActivity {
 
         recycler.setLayoutManager(new GridLayoutManager(this, 3));
         recycler.setHasFixedSize(true);
-        adapter = new SearchCategoryAdapter(this, queryName,SearchCategoryModel.getCategoryModelList());
+        adapter = new SearchCategoryAdapter(this, queryName, SearchCategoryModel.getCategoryModelList());
         recycler.setAdapter(adapter);
+    }
+
+    private void hideStatusBar() {
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+    }
+
+    public void onBackButtonPressed(View view) {
+        finish();
     }
 }

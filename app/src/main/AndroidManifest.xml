@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashScreenActivity">
+        <activity android:name=".SplashScreenActivity"
+            android:theme="@style/CustomTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,8 +23,10 @@
         </activity>
         <activity android:name=".fireBaseUpdates" />
         <activity android:name=".ForgotPasswordActivity" />
-        <activity android:name=".Main2Activity" />
-        <activity android:name=".activities.SearchCategoriesActivity" />
+        <activity android:name=".Main2Activity"
+            android:theme="@style/CustomTheme"/>
+        <activity android:name=".activities.SearchCategoriesActivity"
+            android:theme="@style/CustomTheme"/>
         <activity
             android:name=".activities.CategoryActivity"
             android:theme="@style/CustomTheme" />

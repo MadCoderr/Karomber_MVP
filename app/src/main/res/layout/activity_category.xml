@@ -12,7 +12,7 @@
         android:id="@+id/rel_layout_category"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone">
+        android:visibility="visible">
 
         <ImageView
             android:id="@+id/img_item_category"
@@ -20,6 +20,26 @@
             android:layout_height="250dp"
             android:scaleType="fitXY"
             android:src="@drawable/error_holder_image" />
+
+        <ImageButton
+            android:id="@+id/btn_back_category"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/back_btn_bg"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:onClick="onBackButtonPressed"
+            android:background="?android:attr/selectableItemBackground"/>
+
+
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            app:srcCompat="@drawable/ic_more_vert_"
+            android:background="?android:attr/selectableItemBackground"
+            android:onClick="showPopUpMenu"/>
 
         <TextView
             android:id="@+id/lbl_item_title_category"

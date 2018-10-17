@@ -2,6 +2,8 @@ package com.example.eapple.tripdatacollection;
 
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -52,6 +55,7 @@ public class HomeFragment extends Fragment {
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (!IS_TOUCH) {
                     Log.i("check_edit", "focused enter in edit text");
+                    hideKeyboard();
                     FragmentManager manager = getActivity().getSupportFragmentManager();
                                     manager
                                             .beginTransaction()
@@ -68,9 +72,16 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
+
+    private void hideKeyboard() {
+        InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(userQuery.getWindowToken(), 0);
+    }
+
     @Override
     public void onPause() {
         super.onPause();
         IS_TOUCH = false;
     }
+
 }

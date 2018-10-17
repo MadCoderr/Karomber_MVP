@@ -2,7 +2,7 @@ package com.example.eapple.tripdatacollection.fragments;
 
 
 import android.annotation.SuppressLint;
-import android.content.Context;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,14 +12,12 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.eapple.tripdatacollection.HomeFragment;
@@ -41,14 +39,13 @@ public class SearchFilterFragment extends Fragment {
     ImageButton btnCancelSearch;
     Button btnFilterSearch;
     EditText searchQuery;
-    ProgressBar proBar;
+
 
     RecyclerView recycler;
     SearchableAdapter adapter;
 
     FirebaseFirestore store;
     List<String> listOfNames;
-
 
     public SearchFilterFragment() {
     }
@@ -58,7 +55,7 @@ public class SearchFilterFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_search_filter, container, false);
+        final View v = inflater.inflate(R.layout.fragment_search_filter, container, false);
 
         store = FirebaseFirestore.getInstance();
         listOfNames = new ArrayList<>();
@@ -66,14 +63,8 @@ public class SearchFilterFragment extends Fragment {
         btnCancelSearch = v.findViewById(R.id.btn_cancel_search);
         btnFilterSearch = v.findViewById(R.id.btn_filter_search);
         searchQuery = v.findViewById(R.id.edt_filter_search);
-        proBar = v.findViewById(R.id.pro_bar_search);
         recycler = v.findViewById(R.id.rec_view_filter_search);
         recycler.setLayoutManager(new LinearLayoutManager(getContext()));
-
-        // as soon as fragment get called let the focus on edit text.
-        searchQuery.requestFocus();
-        InputMethodManager manager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-        manager.showSoftInput(searchQuery, InputMethodManager.SHOW_IMPLICIT);
 
         store.collection("collection_names")
                 .document("names")
@@ -169,11 +160,18 @@ public class SearchFilterFragment extends Fragment {
         return false;
     }
 
+
+
     @Override
     public void onPause() {
         super.onPause();
+        hideKeyboard();
         HomeFragment.IS_TOUCH = false;
         searchQuery.getText().clear();
     }
 
+    private void hideKeyboard() {
+        InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(searchQuery.getWindowToken(), 0);
+    }
 }
