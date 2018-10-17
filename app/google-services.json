@@ -15,11 +15,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "196943875302-uceka4dtss6egv4tsiq9pvqdqq6379qi.apps.googleusercontent.com",
+          "client_id": "196943875302-0acj01558d0bnlbjmjum32pkfe6sr5ka.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.eapple.tripdatacollection",
-            "certificate_hash": "9bf3dff30b0038627b6795a95d4476c78fdc34d4"
+            "certificate_hash": "80c8c3286e5301e7cc2b595699bfdee33de8f62a"
           }
         },
         {

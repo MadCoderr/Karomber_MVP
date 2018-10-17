@@ -7,12 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextClock;
 import android.widget.TextView;
 
 import com.example.eapple.tripdatacollection.R;
 
-public class ProfileAdpater extends RecyclerView.Adapter<ProfileAdpater.MyHolder> {
+public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.MyHolder> {
 
     Context context;
     int [] images;
@@ -24,7 +23,7 @@ public class ProfileAdpater extends RecyclerView.Adapter<ProfileAdpater.MyHolder
      * @param context
      * @param images
      */
-    public ProfileAdpater(Context context, int[] images, String[] iconsDesc) {
+    public ProfileAdapter(Context context, int[] images, String[] iconsDesc) {
         this.context = context;
         this.images = images;
         this.iconsDescription = iconsDesc;

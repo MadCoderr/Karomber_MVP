@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/sign_up_bg3"
-    tools:context=".SignInFragment"
+    tools:context=".create_account.sign_in.SignInFragment"
     >
 
     <android.support.constraint.ConstraintLayout
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/head"
+            android:id="@+id/tv_head_signUp2"
             style="@style/head_Text_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
             android:layout_marginTop="40dp"
             android:text="@string/login_msg"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/head" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_head_signUp2" />
 
         <RelativeLayout
             android:id="@+id/relativeLayout5"
@@ -47,7 +47,7 @@
             app:layout_constraintTop_toBottomOf="@+id/message">
 
             <EditText
-                android:id="@+id/si_email"
+                android:id="@+id/et_email_signIn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
@@ -56,6 +56,7 @@
                 android:layout_marginTop="5dp"
                 android:background="@android:color/transparent"
                 android:ems="10"
+                android:textColor="@color/white"
                 android:hint="@string/email_hint"
                 android:inputType="textPersonName"
                 android:textColorHint="@color/text_hint_color"
@@ -83,7 +84,7 @@
             app:layout_constraintTop_toBottomOf="@+id/relativeLayout5">
 
             <EditText
-                android:id="@+id/si_password"
+                android:id="@+id/et_password_signIn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
@@ -91,6 +92,7 @@
                 android:background="@android:color/transparent"
                 android:ems="10"
                 android:hint="@string/password_hint"
+                android:textColor="@color/white"
                 android:inputType="textPassword"
                 android:textColorHint="@color/text_hint_color"
                 tools:layout_editor_absoluteX="16dp"
@@ -107,7 +109,7 @@
         </RelativeLayout>
 
         <TextView
-            android:id="@+id/tv_forgot_password"
+            android:id="@+id/tv_create_account_link_singIn"
             style="@style/fortog_password_text_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -116,13 +118,13 @@
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="@string/forgot_password_text"
+            android:text="@string/create_account_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/relativeLayout6" />
 
         <Button
-            android:id="@+id/btn_continue"
+            android:id="@+id/btn_conitnue_signIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -135,7 +137,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_forgot_password"
+            app:layout_constraintTop_toBottomOf="@+id/tv_create_account_link_singIn"
             app:layout_constraintVertical_bias="0.0" />
     </android.support.constraint.ConstraintLayout>
 </ScrollView>

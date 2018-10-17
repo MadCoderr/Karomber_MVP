@@ -29,11 +29,12 @@
 
             <ImageView
                 android:id="@+id/weather_status_img"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/add_button_icon"
-                android:paddingTop="30dp"
-                android:layout_margin="10dp" />
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/sun_icon"
+                android:layout_marginTop="35dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp" />
 
             <TextView
                 android:id="@+id/tv_temperature"
@@ -42,8 +43,8 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/weather_status_img"
                 android:layout_toEndOf="@id/weather_status_img"
-                android:paddingLeft="30dp"
-                android:paddingRight="30dp"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
                 android:text="20 C"
                 />
 

@@ -16,6 +16,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
 
@@ -49,6 +50,7 @@ public class Main2Activity extends AppCompatActivity {
                 case R.id.navigation_home:
                     tag = "home_frag";
                     loadFragment(homeFragment, tag);
+                    getFragmentManager().popBackStack("HomeFragment", getFragmentManager().POP_BACK_STACK_INCLUSIVE);
                     //loadFragment(locationsResult, tag);
                     return true;
             }
@@ -133,6 +135,7 @@ public class Main2Activity extends AppCompatActivity {
         manager.beginTransaction()
                 .setCustomAnimations(anim_left_id, anim_right_id)
                 .replace(R.id.fragment_container, fragment, tag)
+                .addToBackStack("HomeFragment")
                 .commit();
 //
 //        FragmentTransaction fragmentTransaction = getSupportManager().beginTransaction();
@@ -149,5 +152,18 @@ public class Main2Activity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 
+    @Override
+    public void onBackPressed() {
+        int fragments = getSupportFragmentManager().getBackStackEntryCount();
+        if (fragments == 1) {
+            finish();
+        } else {
+            if (getFragmentManager().getBackStackEntryCount() > 1) {
+                getFragmentManager().popBackStack();
+            } else {
+                super.onBackPressed();
+            }
+        }
+    }
 
 }

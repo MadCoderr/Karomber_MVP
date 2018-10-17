@@ -5,11 +5,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,9 +14,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.support.annotation.RequiresApi;
 
-import com.example.eapple.tripdatacollection.adapter.ProfileAdpater;
-
-import java.util.Objects;
+import com.example.eapple.tripdatacollection.adapter.ProfileAdapter;
+import com.example.eapple.tripdatacollection.create_account.sign_in.SignInFragment;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
 /**
@@ -32,10 +30,9 @@ public class ProfileFragment extends Fragment {
     private TextView userName;
     private TextView address;
     private View view;
-    RecyclerView recyclerView;
-    private SignUp3Fragment signUp3Fragment;
-    private SignInFragment signInFragment;
-    private android.support.v7.widget.Toolbar toolbar;
+    private RecyclerView recyclerView;
+    private FirebaseAuth mAuth;
+    FragmentTransaction transaction;
     private String[] descriptions;
     private int[] icons = {
             R.drawable.edit_profile_icon,
@@ -56,6 +53,7 @@ public class ProfileFragment extends Fragment {
 
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_profile, container, false);
+        mAuth = FirebaseAuth.getInstance();
 
         //Initializing objects
         recyclerView = view.findViewById(R.id.profile_recyler_view);
@@ -63,52 +61,32 @@ public class ProfileFragment extends Fragment {
         userName = view.findViewById(R.id.tv_name);
         address = view.findViewById(R.id.tv_address);
         descriptions = getResources().getStringArray(R.array.icons_description_list);
-        recyclerView.setHasFixedSize(true);
+        transaction = getActivity().getSupportFragmentManager().beginTransaction();
 
+        //Setting up recyclerView
+        recyclerView.setHasFixedSize(true);
         LinearLayoutManager manager = new LinearLayoutManager(getActivity());
         manager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(manager);
-
-        ProfileAdpater adpater = new ProfileAdpater(getActivity(), icons, descriptions);
+        ProfileAdapter adpater = new ProfileAdapter(getActivity(), icons, descriptions);
         recyclerView.setAdapter(adpater);
-
-
-        //Getting reference to actionbar and doing customization
-        toolbar = view.findViewById(R.id.app_bar_new);
-        ((AppCompatActivity) Objects.requireNonNull(getActivity())).setSupportActionBar(toolbar);
-        ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
-        this.setHasOptionsMenu(true);
-
-        if(actionBar != null){
-            actionBar.setHomeButtonEnabled(true);
-            actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setTitle("Profile");
-        }else {
-            Log.d(TAG, "onCreateView: actionBar object is null");
-        }
-
-
-
-        //Initializing fragments and managers
-         signUp3Fragment = new SignUp3Fragment();
-         signInFragment = new SignInFragment();
 
         return view;
 
     }
 
-    /**
-     * @brief Adds the current fragment to back stack and Loads the new fragment passed to it.
-     * @param fragment
-     */
-    private void loadFragment(android.support.v4.app.Fragment fragment){
-        try {
-            FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, fragment);
-            fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.commit();
-        }catch (NullPointerException e){
-            Log.d(TAG, "loadFragment: Exception" + e.getMessage());
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        FirebaseUser user = mAuth.getCurrentUser();
+
+        // Checks if the user is signedIn, otherwise redirects him to login
+        if(user == null){
+            //User is not signedIn, redirects him to signIn screen
+            SignInFragment fragment = new SignInFragment();
+            transaction.replace(R.id.fragment_container, fragment);
+            transaction.commit();
         }
     }
 
